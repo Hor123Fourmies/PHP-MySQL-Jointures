@@ -25,19 +25,13 @@ $dbname = "id11175534_newbase";
 
 $conn = new mysqli($servername, $username, $password);
 $conn->select_db($dbname);
-$liste = "SELECT * FROM WB-eleves LEFT JOIN WB-eleves-infos ON (WB-eleves-infos.eleves_id = WB-eleves.id)";
-echo $liste;
+$liste = "SELECT * FROM `WB-eleves` LEFT JOIN `WB-eleves-infos` ON (WB-eleves-infos.eleves_id = WB-eleves.id)";
 $result = $conn->query($liste);
 
 while ($row = $result->fetch_assoc()) {
-    echo $row['prenom'].' '.$row['nom'].' '.$row['login'].' '.$row['password']."<br>";
-    echo $row['age'].'ans'.' '.'habite à :'.' '.$row['ville']. ' '.'surnom : '.$row['avatar'].' '.$row['eleves_id']."<br>";
+    echo $row["prenom"]." ".$row["nom"]." ".$row["login"]." ".$row["password"]."<br>";
+    echo $row["age"] ." "."ans"." ".$row["ville"]." ".$row["avatar"]." ".$row["eleves_id"]."<br>";
 }
-
-echo $result->error;
-
-
-
 
 
 
