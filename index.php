@@ -12,25 +12,30 @@
 et les informations de l'élève dans une seule et même requête sql
 
 SELECT * FROM `WB-eleves`, `WB-eleves-infos` WHERE 1
+SELECT * FROM eleves LEFT JOIN animaux ON (animaux.nom = chat) WHERE 1
+SELECT * FROM eleves LEFT JOIN animaux ON (animaux.id_eleve = eleves.id) WHERE 1
 
 */
 
 
-    $servername = "localhost";
-    $username = "id11175534_hor";
-    $password = "azerty";
-    $dbname = "id11175534_newbase";
+$servername = "localhost";
+$username = "id11175534_hor";
+$password = "azerty";
+$dbname = "id11175534_newbase";
 
-    $conn = new mysqli($servername, $username, $password);
-    $conn->select_db($dbname);
-    $liste = "SELECT * FROM WB-eleves LEFT JOIN WB-eleves-infos ON (WB-eleves-infos.eleves.id = WB-eleves.id) WHERE 1";
-    $result = $conn->query($liste);
+$conn = new mysqli($servername, $username, $password);
+$conn->select_db($dbname);
+$liste = "SELECT * FROM WB-eleves LEFT JOIN WB-eleves-infos ON (WB-eleves-infos.eleves_id = WB-eleves.id)";
+echo $liste;
+$result = $conn->query($liste);
 
-    while($row = $result->fetch_assoc())
-    {
-        echo $row['prenom'].' '.$row['nom'].' '.$row['login'].' '.$row['password']."<br>";
-        echo $row['age'].'ans'.' '.'habite à :'.' '.$row['ville'].' '.'surnom : '.$row['avatar'].' '.$row['eleves_id']."<br>";
-    }
+while ($row = $result->fetch_assoc()) {
+    echo $row['prenom'].' '.$row['nom'].' '.$row['login'].' '.$row['password']."<br>";
+    echo $row['age'].'ans'.' '.'habite à :'.' '.$row['ville']. ' '.'surnom : '.$row['avatar'].' '.$row['eleves_id']."<br>";
+}
+
+echo $result->error;
+
 
 
 
