@@ -8,13 +8,14 @@ $dbname = "id11175534_newbase";
 $conn = new mysqli($servername, $username, $password);
 $conn->select_db($dbname);
 
-$competences = "SELECT * FROM `WB-eleves`as e LEFT JOIN `WB-eleves-competences` as ec ON (ec.eleves_id = e.id)";
+
+$competences = "SELECT * FROM `WB-eleves-competences`as ec LEFT JOIN `WB-competences` as c ON (c.id = ec.id)";
 $result = $conn->query($competences);
 echo $conn->error;
 
 while ($row = $result->fetch_assoc()) {
-    echo "Nom : ".$row['nom']."<br>";
-    echo "Prénom : ".$row['prenom']."<br>";
-    echo "Humour : ".$row['humour'] ."<br>"."Créativité : ".$row['creativite']."<br>";
-    echo "<br><br>";
+    echo $row['eleves_id']."<br>";
+    echo "Compétence : ".$row['titre']."<br>";
+    echo "<br>";
+    
 }

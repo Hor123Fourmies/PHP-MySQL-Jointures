@@ -37,8 +37,8 @@ while ($row = $result->fetch_assoc()) {
     echo "Mot de passe : ".$row['password']."<br>";
     echo 'Age : '.$row['age'] .' '.'ans'."<br>".$row['ville']."<br>".'Surnom : '.$row['avatar']."<br>"."ID de l'élève :".$row['eleves_id']."<br>";
     echo "<br><br>";
-}
 
+}
 
 
 
