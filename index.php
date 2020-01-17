@@ -25,16 +25,19 @@ $dbname = "id11175534_newbase";
 
 $conn = new mysqli($servername, $username, $password);
 $conn->select_db($dbname);
-$liste = "SELECT * FROM `WB-eleves` as e LEFT JOIN `WB-eleves-infos` as ei ON (ei.eleves_id = e.id)";
-$result = $conn->query($liste);
+$listeEleves = "SELECT * FROM `WB-eleves` as e LEFT JOIN `WB-eleves-infos` as ei ON (ei.eleves_id = e.id)";
+
+$result = $conn->query($listeEleves);
 echo $conn->error;
 
 while ($row = $result->fetch_assoc()) {
-    echo 'Prénom : '.$row['prenom']."<br>"."Nom : ".$row['nom']."<br>".'Login :  '.$row['login']."<br>"."Mot de passe : ".$row['password']."<br>";
+    echo "<a href = 'index2.php'>Nom : </a>".$row['nom']."<br>";
+    echo "Prénom : ".$row['prenom']."<br>";
+    echo 'Login :  '.$row['login']."<br>";
+    echo "Mot de passe : ".$row['password']."<br>";
     echo 'Age : '.$row['age'] .' '.'ans'."<br>".$row['ville']."<br>".'Surnom : '.$row['avatar']."<br>"."ID de l'élève :".$row['eleves_id']."<br>";
     echo "<br><br>";
 }
-
 
 
 
