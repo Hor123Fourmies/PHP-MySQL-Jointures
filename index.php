@@ -29,8 +29,8 @@ $liste = "SELECT * FROM `WB-eleves` LEFT JOIN `WB-eleves-infos` ON (WB-eleves-in
 $result = $conn->query($liste);
 
 while ($row = $result->fetch_assoc()) {
-    echo $row["prenom"]." ".$row["nom"]." ".$row["login"]." ".$row["password"]."<br>";
-    echo $row["age"] ." "."ans"." ".$row["ville"]." ".$row["avatar"]." ".$row["eleves_id"]."<br>";
+    echo $row['prenom']." ".$row['nom'].' '.$row['login'].' '.$row['password']."<br>";
+    echo $row['age'] .' '.'ans'.' '.$row['ville'].' '.$row['avatar'].' '.$row['eleves_id']."<br>";
 }
 
 
