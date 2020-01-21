@@ -29,13 +29,45 @@ $listeEleves = "SELECT * FROM `WB-eleves` as e LEFT JOIN `WB-eleves-infos` as ei
 
 $result = $conn->query($listeEleves);
 echo $conn->error;
-
+/*
 while ($row = $result->fetch_assoc()) {
-    echo "<a href = 'index2.php'>Nom : </a>".$row['nom']."<br>";
+    echo "Nom : ".$row['nom']."<br>";
     echo "Prénom : ".$row['prenom']."<br>";
     echo 'Login :  '.$row['login']."<br>";
     echo "Mot de passe : ".$row['password']."<br>";
-    echo 'Age : '.$row['age'] .' '.'ans'."<br>".$row['ville']."<br>".'Surnom : '.$row['avatar']."<br>"."ID de l'élève :".$row['eleves_id']."<br>";
+    echo 'Age : '.$row['age'] .' '.'ans'."<br>";
+    echo 'Ville : '.$row['ville']."<br>";
+    echo 'Surnom : '.$row['avatar']."<br>";
+    //echo "ID de l'élève : ".$row['eleves_id']."<br>";
+    $id_eleve = $row['eleves_id'];
+
+    if ($row['nom'] === 'Talon'){
+        echo "<a href = 'index3.php'>ID de l'élève : </a>".$row['eleves_id']."<br>";
+    }
+    else if($row['nom'] === 'Lupin'){
+        echo "<a href = 'index4.php'>ID de l'élève : </a>".$row['eleves_id']."<br>";
+    }
+    else if($row['nom'] === 'Aragon'){
+        echo "<a href = 'index5.php'>ID de l'élève : </a>".$row['eleves_id']."<br>";
+    }
+
+    echo "<br><br>";
+
+}
+*/
+
+while ($row = $result->fetch_assoc()) {
+    echo "Nom : ".$row['nom']."<br>";
+    echo "Prénom : ".$row['prenom']."<br>";
+    echo 'Login :  '.$row['login']."<br>";
+    echo "Mot de passe : ".$row['password']."<br>";
+    echo 'Age : '.$row['age'] .' '.'ans'."<br>";
+    echo 'Ville : '.$row['ville']."<br>";
+    echo 'Surnom : '.$row['avatar']."<br>";
+    //echo "ID de l'élève : ".$row['eleves_id']."<br>";
+    $id_eleve = $row['eleves_id'];
+    echo "<a href = 'index6.php?id_eleve=$id_eleve'>ID de l'élève : </a>".$row['eleves_id']."<br>";
+
     echo "<br><br>";
 
 }

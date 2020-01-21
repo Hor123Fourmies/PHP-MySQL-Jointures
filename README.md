@@ -10,7 +10,7 @@ et les informations de l'élève dans une seule et même requête sql
 ainsi que son niveau auto évalué.
 - Vous afficherez le niveau d'une compétence sous la forme d'un diagramme polaire.
 - Vous ajouterez un second diagramme polaire par-dessus le premier 
-pour afficher le niveau auto évalué dans une compétence
+pour afficher le niveau auto-évalué dans une compétence
 
 
 
