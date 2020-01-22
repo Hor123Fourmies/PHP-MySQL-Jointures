@@ -24,3 +24,9 @@ while ($row = $result->fetch_assoc()) {
     echo "<br>";
 }
 
+
+
+?>
+
+<script src="Chart.js"></script>
+<script src="script.js"></script>
